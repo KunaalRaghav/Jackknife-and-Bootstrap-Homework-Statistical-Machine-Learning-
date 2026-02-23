@@ -17,4 +17,4 @@ Homework6 Part1.pdf)
 
 Step 3: Take a look at the R portion (Titled: Homework6.pdf)
 
-Step 4: Take a look at the Final document(Titled: )
+Step 4: Take a look at the Final document(Titled:Homework6-Final File)
