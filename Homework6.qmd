@@ -1,0 +1,53 @@
+---
+title: "Homework6"
+author: "Kunaal Raghav"
+format: pdf
+editor: visual
+---
+
+## Install Packages
+
+```{r}
+#install.packages("bootstrap")
+library(bootstrap)
+```
+
+## Question 1: Bases and Sopranos
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+Part B
+
+```{r}
+
+#Data creation
+x <- c(102,115,127,127,162,180,184,205,239,240)
+
+
+theta_hat <- min(x)
+
+#LOOCV Calculation
+theta_i <- sapply(1:length(x), function(i) min(x[-i]))
+
+#Equation
+theta_jack <- length(x) * mean(theta_i) - (length(x) - 1) * theta_hat
+
+#Results
+theta_jack
+
+```
+
+Note for the equation ( which is theta-hat) the equation is as follows:
+
+$$
+\hat{\theta}jack= n\hat{\theta}-(n-1)\bar{\theta}_{(-)}
+$$
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
