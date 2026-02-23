@@ -10,6 +10,7 @@ editor: visual
 ```{r}
 #install.packages("bootstrap")
 library(bootstrap)
+library(MASS)
 ```
 
 ## Question 1: Bases and Sopranos
@@ -43,11 +44,37 @@ $$
 \hat{\theta}jack= n\hat{\theta}-(n-1)\bar{\theta}_{(-)}
 $$
 
-You can add options to executable code like this
+## Question 2: Example 5.4.9
+
+Part A
 
 ```{r}
-#| echo: false
-2 * 2
+
+mu_hat <- mean(Boston$medv)
+mu_hat
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Part B
+
+```{r}
+n <- length(Boston$medv)
+se_formula <- sd(Boston$medv) / sqrt(n)
+se_formula
+```
+
+Part C
+
+```{r}
+set.seed(1)
+
+B <- 2000
+boot_means <- numeric(B)
+
+for (b in 1:B) {
+  sample_b <- sample(Boston$medv, size = n, replace = TRUE)
+  boot_means[b] <- mean(sample_b)
+}
+
+se_boot <- sd(boot_means)
+se_boot
+```
