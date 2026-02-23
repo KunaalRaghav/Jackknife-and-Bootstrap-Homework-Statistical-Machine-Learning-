@@ -78,3 +78,39 @@ for (b in 1:B) {
 se_boot <- sd(boot_means)
 se_boot
 ```
+
+Both calculations are similar in response. The small difference represent sampling variability
+
+Part D
+
+```{r}
+
+ci_boot <- c(mu_hat - 2*se_boot, mu_hat + 2*se_boot)
+ci_boot
+
+t.test(Boston$medv)
+```
+
+Part E
+
+```{r}
+M_hat <- median(Boston$medv)
+M_hat
+
+```
+
+Part F
+
+```{r}
+set.seed(1)
+
+boot_medians <- numeric(B)
+
+for (b in 1:B) {
+  sample_b <- sample(Boston$medv, size = n, replace = TRUE)
+  boot_medians[b] <- median(sample_b)
+}
+
+se_median_boot <- sd(boot_medians)
+se_median_boot
+```
